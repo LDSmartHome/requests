@@ -3,7 +3,7 @@ import 'package:universal_io/io.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:http/http.dart';
-import 'package:http/io_client.dart' if (dart.library.html) '';
+import 'package:http/io_client.dart';
 
 import 'package:requests/src/common.dart';
 import 'package:requests/src/cookie.dart';
@@ -240,16 +240,16 @@ class Requests {
 
     // dart:io is not supported on web. This will throw an SSL error if there is
     // one and if the script is running on web.
-    if (!verify && Common.isDartVM && kIsWeb) {
+    /*if (!verify && Common.isDartVM && kIsWeb) {
       // Ignore SSL errors
       var ioClient = HttpClient();
       ioClient.badCertificateCallback = (_, __, ___) => true;
       client = IOClient(ioClient);
 
-    } else {
+    } else {*/
       // The default client validates SSL certificates and fail if invalid
       client = Client();
-    }
+    //}
 
     var uri = Uri.parse(url);
 
