@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:universal_io/io.dart';
 
 import 'package:http/http.dart';
-import 'package:http/io_client.dart';// if (dart.library.html) '';
+import 'package:http/io_client.dart' if (dart.library.html) '';
 
 import 'package:requests/src/common.dart';
 import 'package:requests/src/cookie.dart';
@@ -235,7 +235,7 @@ class Requests {
       int timeoutSeconds = defaultTimeoutSeconds,
       bool persistCookies = true,
       bool verify = true}) async {
-    Client client;
+    Object client;
 
     // dart:io is not supported on web. This will throw an SSL error if there is
     // one and if the script is running on web.
@@ -243,7 +243,9 @@ class Requests {
       // Ignore SSL errors
       var ioClient = HttpClient();
       ioClient.badCertificateCallback = (_, __, ___) => true;
-      client = IOClient(ioClient);
+      //client = IOClient(ioClient);
+      client = ioClient;
+
     } else {
       // The default client validates SSL certificates and fail if invalid
       client = Client();
