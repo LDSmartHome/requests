@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:universal_io/io.dart';
 
 import 'package:http/http.dart';
-import 'package:http/io_client.dart' if (dart.library.html) '';
+import 'package:http/io_client.dart';// if (dart.library.html) '';
 
 import 'package:requests/src/common.dart';
 import 'package:requests/src/cookie.dart';
