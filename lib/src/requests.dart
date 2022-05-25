@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'dart:io' if (dart.library.html) '';
+import 'package:universal_io/io.dart';
 
 import 'package:http/http.dart';
 import 'package:http/io_client.dart' if (dart.library.html) '';
